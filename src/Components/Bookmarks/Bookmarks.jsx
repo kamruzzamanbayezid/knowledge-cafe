@@ -1,8 +1,8 @@
 
 const Bookmarks = ({ bookMarkData, readingTime }) => {
-      // console.log(readingTime);
+   
       return (
-            <div className="w-1/3 border">
+            <div className="lg:w-1/3">
                   <h3 className="text-[#6047EC] text-2xl font-bold py-5 px-10 bg-[#6047ec1a] rounded-lg">Spent time on read : <span>{readingTime}</span> min</h3>
 
                   <div className="bg-[#6047ec1a] mt-6 rounded-lg p-7">

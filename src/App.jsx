@@ -15,17 +15,20 @@ function App() {
     setBookMarkData(newBookMarkdata);
   };
 
-  const handleReadingTime = (blog) => {
+  
+  const handleReadingTime = (blog, id) => {
     const newReadingTime = blog.reading_time;
-    console.log(newReadingTime);
     setReadingTime(readingTime + newReadingTime);
+  
+    // remove item from bookmark
+    const removeData = bookMarkData.filter(data => data.id !== id)
+    setBookMarkData(removeData);
   }
-
 
   return (
     <>
       <Headers></Headers>
-      <div className='md:flex gap-6'>
+      <div className='lg:flex gap-6 mt-8'>
 
         <Blogs
           handleBookMark={handleBookMark}

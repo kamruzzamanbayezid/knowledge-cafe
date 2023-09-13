@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import Blog from "../BLog/Blog";
-import PropTypes from 'prop-types';
 
 const Blogs = ({handleBookMark,handleReadingTime}) => {
 
@@ -14,11 +13,13 @@ const Blogs = ({handleBookMark,handleReadingTime}) => {
       }, []);
 
       return (
-            <div className="border md:w-8/12">
+            <div className="removeLastBorder lg:w-8/12">
                   {
                         blogs.map((blog,index) => <Blog
                               key={blog.id+index}
                               blog={blog}
+                              blogIndex={index}
+                              blogLength={blogs.length}
                               handleBookMark={handleBookMark}
                               handleReadingTime={handleReadingTime}>
                         </Blog>)
@@ -27,8 +28,5 @@ const Blogs = ({handleBookMark,handleReadingTime}) => {
       );
 };
 
-Blogs.propTypes = {
-      blogs: PropTypes.array,
-};
 
 export default Blogs;

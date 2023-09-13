@@ -1,0 +1,3 @@
+.removeLastBorder div:last-child{
+      border-bottom: 0;
+}
