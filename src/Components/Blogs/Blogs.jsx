@@ -3,7 +3,7 @@ import { useState } from "react";
 import Blog from "../BLog/Blog";
 import PropTypes from 'prop-types';
 
-const Blogs = () => {
+const Blogs = ({handleBookMark,handleReadingTime}) => {
 
       const [blogs, setBlogs] = useState([]);
 
@@ -16,9 +16,11 @@ const Blogs = () => {
       return (
             <div className="border md:w-8/12">
                   {
-                        blogs.map(blog => <Blog
-                              key={blog.id}
-                              blog={blog}>
+                        blogs.map((blog,index) => <Blog
+                              key={blog.id+index}
+                              blog={blog}
+                              handleBookMark={handleBookMark}
+                              handleReadingTime={handleReadingTime}>
                         </Blog>)
                   }
             </div>
@@ -26,7 +28,7 @@ const Blogs = () => {
 };
 
 Blogs.propTypes = {
-      blogs: PropTypes.array.isRequired,
+      blogs: PropTypes.array,
 };
 
 export default Blogs;

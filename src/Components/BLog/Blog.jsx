@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { FaRegBookmark } from 'react-icons/fa';
 
-const Blog = ({ blog }) => {
+const Blog = ({ blog, handleBookMark, handleReadingTime }) => {
 
       const { author, author_img, cover, posted_date, reading_time, title, hashtags } = blog;
 
@@ -23,7 +23,8 @@ const Blog = ({ blog }) => {
                         <div className='flex items-center gap-2'>
                               <h1 className='text-[gray] text-xl font-medium'>0{reading_time} min read</h1>
 
-                              <button className='text-2xl'><FaRegBookmark></FaRegBookmark></button>
+                              {/* Bookmark Icon */}
+                              <button onClick={() => { handleBookMark(blog) }} className='text-2xl'><FaRegBookmark></FaRegBookmark></button>
                         </div>
                   </div>
 
@@ -34,11 +35,11 @@ const Blog = ({ blog }) => {
                   {/* HashTag */}
                   <div className='mb-5'>
                         {
-                              hashtags.map((hashtag, index) => <a className='text-[gray] text-xl font-medium mr-4' key={index}>#<span>{hashtag}</span></a>)
+                              hashtags.map((hashtag, index) => <a className='text-[gray] text-xl font-medium mr-4' key={hashtag + index}>#<span>{hashtag}</span></a>)
                         }
                   </div>
                   {/* Mark as read */}
-                  <a href="#" className='underline text-xl font-semibold text-[#6047EC] mb-7'>Mark as read</a>
+                  <a onClick={() => { handleReadingTime(blog) }} href="#" className='underline text-xl font-semibold text-[#6047EC] mb-7'>Mark as read</a>
 
             </div>
       );
